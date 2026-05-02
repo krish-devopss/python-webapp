@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 My Bookings</h1>
+        
+        <form method="GET" action="/view" class="search-form">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn">Search</button>
+        </form>
+        
+        {% if email %}
+            <h2>Bookings for: {{ email }}</h2>
+            {% if bookings %}
+                {% for booking in bookings %}
+                <div class="booking-card">
+                    <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+                    <p><strong>Name:</strong> {{ booking.name }}</p>
+                    <p><strong>Date:</strong> {{ booking.date }}</p>
+                    <p><strong>Time:</strong> {{ booking.time }}</p>
+                    <p><strong>Guests:</strong> {{ booking.guests }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No bookings found for this email.</p>
+            {% endif %}
+        {% endif %}
+        
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+    </div>
+</body>
+</html>
