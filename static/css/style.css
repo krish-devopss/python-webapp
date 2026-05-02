@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Python WebApp | Modern Static Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="hero">
+            <div class="status-badge" id="statusBadge">
+                <span class="dot"></span>
+                Checking connection...
+            </div>
+            <h1 class="glow-text">✨ Python Flask App</h1>
+            <p class="subtitle">Modern • Fast • Elegant</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Quote Card -->
+            <div class="card quote-card">
+                <div class="card-header">
+                    <span class="icon">💭</span>
+                    <h2>Daily Inspiration</h2>
+                </div>
+                <p class="quote-text" id="quoteText">Loading...</p>
+                <div class="quote-footer">
+                    <span class="time-badge" id="quoteTime"></span>
+                    <button class="btn btn-small" onclick="fetchNewQuote()">
+                        🔄 New Quote
+                    </button>
+                </div>
+            </div>
+
+            <!-- Interactive Section -->
+            <div class="card interactive-card">
+                <div class="card-header">
+                    <span class="icon">💬</span>
+                    <h2>Send a Message</h2>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="messageInput" placeholder="Type something amazing..." class="modern-input">
+                    <button onclick="sendMessage()" class="btn btn-primary">
+                        📤 Send Message
+                    </button>
+                </div>
+                <div id="messageResponse" class="message-response hidden"></div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Built with Flask for optimal performance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Modern UI</h3>
+                    <p>Clean, responsive, and attractive design</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Stable</h3>
+                    <p>Enterprise-grade reliability</p>
+                </div>
+            </div>
+
+            <!-- Server Info -->
+            <div class="card info-card">
+                <div class="card-header">
+                    <span class="icon">📊</span>
+                    <h2>System Status</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value" id="serverStatus">Checking...</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Server Time:</span>
+                        <span class="info-value" id="serverTime">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Python Version:</span>
+                        <span class="info-value">3.9+</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>✨ Powered by Python Flask • Deployed with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
